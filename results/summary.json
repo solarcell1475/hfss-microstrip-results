@@ -1,0 +1,74 @@
+{
+  "success": true,
+  "project": "/home/solarstatiion/aedt-mcp/projects/microstrip_50ohm_fr4_20260802_162355/microstrip_50ohm_fr4.aedt",
+  "touchstone": "/home/solarstatiion/aedt-mcp/projects/microstrip_50ohm_fr4_20260802_162355/microstrip_50ohm_fr4.s2p",
+  "full_s_matrix_csv": "/home/solarstatiion/aedt-mcp/projects/microstrip_50ohm_fr4_20260802_162355/microstrip_50ohm_full_s_matrix.csv",
+  "frequency_range_ghz": [
+    1.0,
+    10.0
+  ],
+  "points": 181,
+  "geometry_mm": {
+    "line_length": 50.0,
+    "trace_width": 3.07,
+    "copper_thickness": 0.035,
+    "substrate_height": 1.6,
+    "substrate_width": 20.0
+  },
+  "substrate": {
+    "material": "FR4_epoxy",
+    "relative_permittivity_nominal": 4.4
+  },
+  "port_impedance_ohm": 50,
+  "hammerstad_z0_ohm": 50.126,
+  "samples": {
+    "1GHz": {
+      "frequency_hz": 1000000000.0,
+      "s11_db": -29.460069,
+      "s11_phase_deg": 144.513387,
+      "s21_db": -0.18886,
+      "s21_phase_deg": -112.891099,
+      "s12_db": -0.18886,
+      "s12_phase_deg": -112.891099,
+      "s22_db": -29.524168,
+      "s22_phase_deg": 146.761437
+    },
+    "2.4GHz": {
+      "frequency_hz": 2400000000.0,
+      "s11_db": -33.801796,
+      "s11_phase_deg": 154.842241,
+      "s21_db": -0.438883,
+      "s21_phase_deg": 88.577348,
+      "s12_db": -0.438883,
+      "s12_phase_deg": 88.577348,
+      "s22_db": -33.402976,
+      "s22_phase_deg": 149.55055
+    },
+    "5GHz": {
+      "frequency_hz": 5000000000.0,
+      "s11_db": -25.914736,
+      "s11_phase_deg": 66.301893,
+      "s21_db": -0.906308,
+      "s21_phase_deg": 149.6286,
+      "s12_db": -0.906308,
+      "s12_phase_deg": 149.6286,
+      "s22_db": -25.843924,
+      "s22_phase_deg": 71.416214
+    },
+    "10GHz": {
+      "frequency_hz": 10000000000.0,
+      "s11_db": -25.387489,
+      "s11_phase_deg": 67.009398,
+      "s21_db": -2.08766,
+      "s21_phase_deg": -85.070209,
+      "s12_db": -2.08766,
+      "s12_phase_deg": -85.070209,
+      "s22_db": -27.721217,
+      "s22_phase_deg": 58.547878
+    }
+  },
+  "worst_s11_db": -23.029,
+  "worst_s22_db": -23.2957,
+  "minimum_s21_db": -2.0877,
+  "maximum_reciprocity_error_db": 0.0
+}
