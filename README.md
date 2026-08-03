@@ -5,6 +5,17 @@ Multiphysics 6.4 models of the same nominal 50-ohm FR-4 microstrip line.
 Both models were generated and solved programmatically through Python/MCP
 workflows, with 181 S-parameter points from 1 to 10 GHz.
 
+## Dr Strange Engine
+
+The [Dr Strange Engine](dr-strange-engine/README.md) is the human-guided tuning
+framework built from this experiment. It presents alternative structural
+optimization branches, explains expected responses and trade-offs, preserves
+global guardrails, and requires the engineer to choose every simulation path.
+
+- [Framework and Q&A protocol](dr-strange-engine/README.md)
+- [Machine-readable tuning-session schema](dr-strange-engine/schemas/tuning-session.schema.json)
+- [Microstrip tuning example](dr-strange-engine/examples/microstrip-trace-width-session.example.json)
+
 ## Model
 
 - Line: 50 mm long, 3.07 mm wide

@@ -1,0 +1,220 @@
+{
+  "schema_version": 1,
+  "session_id": "microstrip-trace-width-001",
+  "structure": {
+    "structure_id": "microstrip-50ohm-fr4",
+    "family": "two-port-microstrip",
+    "components": [
+      "FR4 substrate",
+      "signal trace",
+      "ground plane",
+      "air region",
+      "input port",
+      "output port"
+    ],
+    "parameters": [
+      {
+        "parameter_id": "trace_width",
+        "display_name": "Signal-trace width",
+        "location": "Top surface of FR4 substrate",
+        "current": {
+          "value": 3.07,
+          "unit": "mm"
+        },
+        "allowed_min": {
+          "value": 2.5,
+          "unit": "mm"
+        },
+        "allowed_max": {
+          "value": 3.6,
+          "unit": "mm"
+        },
+        "editable": true,
+        "linked_parameters": [
+          "substrate_height",
+          "port_width"
+        ],
+        "evidence_refs": [
+          "hfss/spec/microstrip_50ohm_fr4.md"
+        ]
+      },
+      {
+        "parameter_id": "substrate_height",
+        "display_name": "FR4 substrate height",
+        "location": "Between signal trace and ground plane",
+        "current": {
+          "value": 1.6,
+          "unit": "mm"
+        },
+        "editable": false,
+        "linked_parameters": [
+          "trace_width"
+        ],
+        "evidence_refs": [
+          "hfss/spec/microstrip_50ohm_fr4.md"
+        ]
+      },
+      {
+        "parameter_id": "line_length",
+        "display_name": "Microstrip line length",
+        "location": "Propagation axis",
+        "current": {
+          "value": 50,
+          "unit": "mm"
+        },
+        "editable": false,
+        "linked_parameters": [],
+        "evidence_refs": [
+          "hfss/spec/microstrip_50ohm_fr4.md"
+        ]
+      }
+    ],
+    "preset_refs": [
+      "baseline-hfss-2025r1",
+      "baseline-comsol-6.4"
+    ]
+  },
+  "accepted_baseline": {
+    "branch_id": "baseline",
+    "model_hash": "replace-with-model-sha256",
+    "result_refs": [
+      "results/microstrip_50ohm_fr4.s2p",
+      "results/summary.json"
+    ]
+  },
+  "rounds": [
+    {
+      "round_id": "round-001",
+      "state": "awaiting_choice",
+      "mini_target": {
+        "metric": "S11",
+        "operator": "minimize",
+        "target": -20,
+        "unit": "dB",
+        "frequency": {
+          "value": 2.4,
+          "unit": "GHz"
+        }
+      },
+      "global_guardrails": [
+        {
+          "metric": "S21",
+          "operator": "greater_than",
+          "target": -0.6,
+          "unit": "dB",
+          "frequency": {
+            "value": 2.4,
+            "unit": "GHz"
+          }
+        },
+        {
+          "metric": "frequency_point_count",
+          "operator": "equal",
+          "target": 181,
+          "unit": "points"
+        }
+      ],
+      "choices": [
+        {
+          "choice_id": "A",
+          "label": "Local trace-width sweep",
+          "direction": "Measure local impedance sensitivity",
+          "parameters": [
+            "trace_width"
+          ],
+          "rationale": "Trace width directly affects characteristic impedance.",
+          "evidence_refs": [
+            "hfss/spec/microstrip_50ohm_fr4.md"
+          ],
+          "expected_responses": [
+            "S11 changes around 2.4 GHz",
+            "Small S21 insertion-loss change"
+          ],
+          "tradeoffs": [
+            "Port sheet width must follow trace width"
+          ],
+          "experiment_strategy": "local_sweep",
+          "estimated_solver_runs": 5,
+          "confidence": "high",
+          "reversible": true
+        },
+        {
+          "choice_id": "B",
+          "label": "Coupled width and substrate-height sweep",
+          "direction": "Explore impedance interaction",
+          "parameters": [
+            "trace_width",
+            "substrate_height"
+          ],
+          "rationale": "The width-to-height ratio controls microstrip impedance.",
+          "evidence_refs": [
+            "hfss/spec/microstrip_50ohm_fr4.md"
+          ],
+          "expected_responses": [
+            "Broader impedance-response map"
+          ],
+          "tradeoffs": [
+            "Changes board stack-up",
+            "Requires more solver runs"
+          ],
+          "experiment_strategy": "coupled_sweep",
+          "estimated_solver_runs": 9,
+          "confidence": "high",
+          "reversible": true
+        },
+        {
+          "choice_id": "C",
+          "label": "Reuse validated baseline preset",
+          "direction": "Retain current dimensions",
+          "parameters": [
+            "trace_width"
+          ],
+          "rationale": "The existing 3.07 mm trace already has a 50.126 ohm Hammerstad estimate.",
+          "evidence_refs": [
+            "results/summary.json"
+          ],
+          "expected_responses": [
+            "No geometry change"
+          ],
+          "tradeoffs": [
+            "Mini-target may remain unmet"
+          ],
+          "experiment_strategy": "preset",
+          "estimated_solver_runs": 0,
+          "confidence": "high",
+          "reversible": true
+        },
+        {
+          "choice_id": "OTHER",
+          "label": "Other / Custom",
+          "direction": "Engineer-defined direction",
+          "parameters": [],
+          "rationale": "Preserve unrestricted human input.",
+          "evidence_refs": [],
+          "expected_responses": [],
+          "tradeoffs": [],
+          "experiment_strategy": "custom",
+          "estimated_solver_runs": 0,
+          "confidence": "low",
+          "reversible": true
+        },
+        {
+          "choice_id": "STOP",
+          "label": "Stop tuning",
+          "direction": "Export current accepted baseline",
+          "parameters": [],
+          "rationale": "The engineer may stop without selecting an optimization branch.",
+          "evidence_refs": [],
+          "expected_responses": [],
+          "tradeoffs": [],
+          "experiment_strategy": "stop",
+          "estimated_solver_runs": 0,
+          "confidence": "high",
+          "reversible": true
+        }
+      ],
+      "human_choice_confirmed": false,
+      "candidate_results": []
+    }
+  ]
+}
