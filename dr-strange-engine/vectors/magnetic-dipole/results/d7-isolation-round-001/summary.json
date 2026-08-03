@@ -1,0 +1,23 @@
+{
+  "engine": "Dr Strange Engine",
+  "round_id": "d7-t4-isolation-mx-001",
+  "design": "600MHz_slot couple_F4B_1X2_3",
+  "objective": {"metric": "dB(S(2,1))", "frequency_mhz": 600, "operator": "less_than", "target_db": -20.0},
+  "selected_candidate": {
+    "candidate_id": "mx210",
+    "parameter_change": {"mx_baseline_mm": 190.0, "mx_selected_mm": 210.0, "delta_mm": 20.0, "delta_percent": 10.526315789473696},
+    "verified_at_maximum_passes": 20,
+    "solver_status": "converged",
+    "target_pass": true,
+    "target_margin_db": 0.7374163995843013
+  },
+  "verified_600mhz_comparison": {
+    "baseline": {"frequency_ghz": 0.6, "s11_db": -19.3479338715516, "s21_db": -15.3748224174748, "s22_db": -19.0573218182058, "peak_realized_gain_dbi": 7.62966070388242, "theta_deg": 26.0, "phi_deg": 0.0},
+    "selected": {"frequency_ghz": 0.6, "s11_db": -19.639409643284, "s21_db": -20.7374163995843, "s22_db": -19.8236655264475, "peak_realized_gain_dbi": 7.056620479663, "theta_deg": 26.0, "phi_deg": 0.0},
+    "selected_minus_baseline": {"s11_db": -0.2914757717324008, "s21_db": -5.362593982109502, "s22_db": -0.7663437082416991, "peak_realized_gain_dbi": -0.5730402242194206}
+  },
+  "verified_sweep_550_750mhz": {"point_count": 9, "baseline_points_meeting_s21_target": 3, "selected_points_meeting_s21_target": 8, "selected_s21_db_range": [-24.0103781718176, -19.494239563823]},
+  "other_candidate": {"candidate_id": "mx230", "status": "preliminary_nonconverged_10_pass_result", "frequency_ghz": 0.6, "s11_db": -19.8477992461574, "s21_db": -27.2378852539269, "s22_db": -19.6161403920718, "peak_realized_gain_dbi": 6.58480612626277, "theta_deg": 24.0, "phi_deg": 2.0},
+  "guardrail_assessment": {"s11": "preserved; the selected S11 is slightly more negative at 600 MHz", "gain": "trade-off; peak realized gain decreases by 0.573 dB", "footprint": "element translation mx increases by 20 mm (10.53%)"},
+  "provenance": {"source_sha256": "a901e3a79ac6f0c6f909d08ba3fa7c09668254c41cc5b79085160af01f04d468", "working_project_sha256": "e2548696fa687d1ff1bf340fe24d0e157755142d2bb53ae5173f48d172c88b22", "source_was_modified": false}
+}
