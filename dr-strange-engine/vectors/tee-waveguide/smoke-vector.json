@@ -1,0 +1,168 @@
+{
+  "vector_schema_version": 1,
+  "vector_id": "aedt-tee-structure-smoke-001",
+  "name": "Three-port waveguide tee structural-understanding smoke test",
+  "purpose": "Verify that the Dr Strange Engine can inspect a real AEDT project, construct a structural map, identify a tunable structural variable, report an inconsistency, and generate human choices without modifying or solving the model.",
+  "source": {
+    "repository_path": "dr-strange-engine/vectors/tee-waveguide/Tee.aedt",
+    "local_discovery_path": "/home/solarstatiion/Tee.aedt",
+    "sha256": "4e243d6f602eab3b9e2e3efcb7b7eb6ffb99b9a212afa361a6bfd4fa62123fc8",
+    "size_bytes": 147618,
+    "aedt_file_version": "2025.1"
+  },
+  "execution_policy": {
+    "test_level": "smoke",
+    "read_only": true,
+    "allow_model_save": false,
+    "allow_geometry_change": false,
+    "allow_solver_run": false,
+    "allow_recipe_promotion": false,
+    "maximum_expected_duration_seconds": 120
+  },
+  "expected_inventory": {
+    "designs": [
+      {
+        "name": "TeeModel",
+        "solution_type": "HFSS Hybrid Modal Network",
+        "model_units": "in",
+        "geometry_objects": [
+          "Tee",
+          "Tee_1",
+          "Tee_2",
+          "Septum"
+        ],
+        "ports": [
+          {
+            "name": "Port1",
+            "type": "Wave Port",
+            "mode_count": 1
+          },
+          {
+            "name": "Port2",
+            "type": "Wave Port",
+            "mode_count": 1
+          },
+          {
+            "name": "Port3",
+            "type": "Wave Port",
+            "mode_count": 1
+          }
+        ],
+        "variables": [
+          {
+            "name": "offset",
+            "current_expression": "0in",
+            "declared_min": "0.1in",
+            "declared_max": "0.3in",
+            "structural_dependency": {
+              "object": "Septum",
+              "property": "YPosition",
+              "expression": "offset-.05in"
+            }
+          }
+        ],
+        "setups": [
+          {
+            "name": "Setup1",
+            "adaptive_frequency": "10GHz",
+            "maximum_passes": 12,
+            "max_delta_s": 0.02
+          }
+        ],
+        "sweeps": [
+          {
+            "name": "Sweep1",
+            "type": "Interpolating",
+            "start": "8GHz",
+            "stop": "10GHz",
+            "step": "0.05GHz",
+            "expected_point_count": 41
+          }
+        ],
+        "output_variables": [
+          "Power11",
+          "Power21",
+          "Power31"
+        ]
+      }
+    ]
+  },
+  "expected_structure_map": {
+    "structure_family": "three-port-waveguide-tee",
+    "fixed_features": [
+      "main waveguide arm",
+      "positive-Y branch",
+      "negative-Y branch",
+      "three single-mode wave ports"
+    ],
+    "editable_features": [
+      {
+        "feature": "septum position",
+        "parameter": "offset",
+        "response_hypotheses": [
+          "input return loss may change",
+          "power division between Port2 and Port3 may change"
+        ],
+        "direction_status": "unknown_until_solver_backed_sensitivity_test"
+      }
+    ]
+  },
+  "expected_findings": [
+    {
+      "finding_id": "OFFSET_OUTSIDE_DECLARED_RANGE",
+      "severity": "warning",
+      "message": "The current offset value of 0in is outside the declared optimization range of 0.1in to 0.3in.",
+      "required_engine_behavior": "Show the discrepancy and ask whether the current value is an intentional baseline before proposing a sweep."
+    }
+  ],
+  "required_choice_card": {
+    "mini_target_question": "Which response should the first tuning round prioritize?",
+    "target_options": [
+      "Minimize S11 near 10 GHz",
+      "Balance transmission from Port1 to Port2 and Port3",
+      "Optimize a user-selected frequency in the 8 to 10 GHz sweep",
+      "Other / Custom",
+      "Stop after structural inspection"
+    ],
+    "direction_options": [
+      {
+        "choice_id": "A",
+        "label": "Preserve the 0in baseline and inspect existing results"
+      },
+      {
+        "choice_id": "B",
+        "label": "Run a local offset sweep inside the declared 0.1in to 0.3in range"
+      },
+      {
+        "choice_id": "C",
+        "label": "Ask the engineer to redefine the valid offset range"
+      },
+      {
+        "choice_id": "OTHER",
+        "label": "Other / Custom"
+      },
+      {
+        "choice_id": "STOP",
+        "label": "Stop without changing or solving the model"
+      }
+    ],
+    "human_confirmation_required": true
+  },
+  "acceptance_criteria": [
+    "The AEDT file hash matches the registered SHA-256 value.",
+    "The project is recognized as an HFSS project with design TeeModel.",
+    "All four expected geometry objects are identified.",
+    "All three single-mode wave ports are identified.",
+    "The offset-to-Septum structural dependency is explained.",
+    "The offset range inconsistency is reported as a warning.",
+    "The 8 to 10 GHz, 0.05 GHz sweep is interpreted as 41 points.",
+    "A choice card includes Other / Custom and Stop options.",
+    "No project mutation, save, mesh generation, or solver execution occurs."
+  ],
+  "future_non_smoke_target": {
+    "status": "disabled_for_smoke_test",
+    "candidate_primary_target": "Minimize S11 at a human-selected frequency.",
+    "candidate_guardrail": "Keep the Port2 and Port3 transmission imbalance within a human-selected tolerance.",
+    "required_next_action": "Obtain human target and guardrail choices before enabling a solver-backed tuning round."
+  }
+}

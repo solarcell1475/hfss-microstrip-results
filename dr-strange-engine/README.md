@@ -293,6 +293,22 @@ The 50-ohm FR-4 microstrip project is the first benchmark:
 The first tuning exercise should vary trace width while preserving substrate,
 line length, port impedance, frequency sweep, and solver convergence criteria.
 
+## First smoke-test vector
+
+The first fast structural-understanding vector is the local three-port
+waveguide `Tee.aedt` project:
+
+- Four geometry objects: `Tee`, `Tee_1`, `Tee_2`, and `Septum`.
+- Three single-mode wave ports.
+- One structural variable: `offset`.
+- `offset` controls `Septum.YPosition` through `offset-.05in`.
+- One adaptive setup at 10 GHz and an 8–10 GHz interpolating sweep.
+- A deliberate warning case: `offset=0in` is outside its declared 0.1–0.3 in
+  optimization range.
+
+See the [smoke-test protocol](smoke-tests/README.md) and
+[machine-readable vector](vectors/tee-waveguide/smoke-vector.json).
+
 ## Framework acceptance criteria
 
 The initial engine is acceptable when it can:
