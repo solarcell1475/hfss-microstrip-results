@@ -1,0 +1,139 @@
+{
+  "reference_touchstone": "/home/solarstatiion/aedt-mcp/projects/microstrip_50ohm_fr4_20260802_162355/microstrip_50ohm_fr4.s2p",
+  "rebuilt_touchstone": "/home/solarstatiion/aedt-mcp/projects/microstrip_rebuilt_from_markdown_20260802_231316/microstrip_rebuilt_from_markdown.s2p",
+  "point_count": 181,
+  "frequency_range_ghz": [
+    1.0,
+    10.0
+  ],
+  "metrics": {
+    "s11": {
+      "max_abs_db_delta": 1.9527846006894833e-10,
+      "rms_db_delta": 4.075265863290529e-11,
+      "max_complex_delta": 6.006879746747318e-13,
+      "rms_complex_delta": 1.9236905648684323e-13,
+      "max_abs_phase_delta_deg": 1.0896030744333984e-09
+    },
+    "s21": {
+      "max_abs_db_delta": 2.5255575408777986e-11,
+      "rms_db_delta": 4.408882439636688e-12,
+      "max_complex_delta": 3.219682461057031e-12,
+      "rms_complex_delta": 6.299018734272663e-13,
+      "max_abs_phase_delta_deg": 9.100631359615363e-11
+    },
+    "s12": {
+      "max_abs_db_delta": 2.5193236385945283e-11,
+      "rms_db_delta": 4.3906292438326676e-12,
+      "max_complex_delta": 3.2218462715944634e-12,
+      "rms_complex_delta": 6.287137164621245e-13,
+      "max_abs_phase_delta_deg": 9.100631359615363e-11
+    },
+    "s22": {
+      "max_abs_db_delta": 1.7417534081687336e-10,
+      "rms_db_delta": 4.862506415416575e-11,
+      "max_complex_delta": 8.703980341722712e-13,
+      "rms_complex_delta": 2.6395889889793177e-13,
+      "max_abs_phase_delta_deg": 1.0535927685850766e-09
+    }
+  },
+  "sample_comparisons": {
+    "1GHz": {
+      "reference_s11_db": -29.46006946905292,
+      "rebuilt_s11_db": -29.460069469132964,
+      "delta_s11_db": -8.004263918337529e-11,
+      "delta_s11_complex": 3.2268904752229247e-13,
+      "delta_s11_phase_deg": 1.5199930203380063e-10,
+      "reference_s21_db": -0.18886024467706775,
+      "rebuilt_s21_db": -0.18886024467701457,
+      "delta_s21_db": 5.3179682879545e-14,
+      "delta_s21_complex": 3.4814344149408e-14,
+      "delta_s21_phase_deg": 1.9895196601282805e-12,
+      "reference_s12_db": -0.18886024467706775,
+      "rebuilt_s12_db": -0.18886024467701457,
+      "delta_s12_db": 5.3179682879545e-14,
+      "delta_s12_complex": 3.4814344149408e-14,
+      "delta_s12_phase_deg": 1.9895196601282805e-12,
+      "reference_s22_db": -29.524168265292076,
+      "rebuilt_s22_db": -29.524168265354795,
+      "delta_s22_db": -6.271960728554404e-11,
+      "delta_s22_complex": 3.166817354191526e-13,
+      "delta_s22_phase_deg": -3.5200287129555363e-10
+    },
+    "2.4GHz": {
+      "reference_s11_db": -33.80179587488837,
+      "rebuilt_s11_db": -33.801795874908926,
+      "delta_s11_db": -2.0556001345539698e-11,
+      "delta_s11_complex": 1.9593599322188608e-13,
+      "delta_s11_phase_deg": -5.329923169483664e-10,
+      "reference_s21_db": -0.4388827995728895,
+      "rebuilt_s21_db": -0.43888279957380544,
+      "delta_s21_db": -9.159339953157541e-13,
+      "delta_s21_complex": 7.401826181226141e-13,
+      "delta_s21_phase_deg": 4.419575816427823e-11,
+      "reference_s12_db": -0.43888279957289056,
+      "rebuilt_s12_db": -0.4388827995737872,
+      "delta_s12_db": -8.966161146872764e-13,
+      "delta_s12_complex": 7.382360735994355e-13,
+      "delta_s12_phase_deg": 4.411049303598702e-11,
+      "reference_s22_db": -33.40297584461119,
+      "rebuilt_s22_db": -33.40297584459299,
+      "delta_s22_db": 1.8204104890173767e-11,
+      "delta_s22_complex": 9.911191795898659e-14,
+      "delta_s22_phase_deg": 2.37008634940139e-10
+    },
+    "5GHz": {
+      "reference_s11_db": -25.914736103048156,
+      "rebuilt_s11_db": -25.914736103028254,
+      "delta_s11_db": 1.9902302028640406e-11,
+      "delta_s11_complex": 1.3220504404896977e-13,
+      "delta_s11_phase_deg": 7.179323802120052e-11,
+      "reference_s21_db": -0.9063080131894516,
+      "rebuilt_s21_db": -0.906308013189412,
+      "delta_s21_db": 3.963496197911809e-14,
+      "delta_s21_complex": 9.500402293080988e-14,
+      "delta_s21_phase_deg": 6.0254023992456496e-12,
+      "reference_s12_db": -0.9063080131894516,
+      "rebuilt_s12_db": -0.906308013189412,
+      "delta_s12_db": 3.963496197911809e-14,
+      "delta_s12_complex": 9.500402293080988e-14,
+      "delta_s12_phase_deg": 6.0254023992456496e-12,
+      "reference_s22_db": -25.843924143037015,
+      "rebuilt_s22_db": -25.84392414302409,
+      "delta_s22_db": 1.2924772363476222e-11,
+      "delta_s22_complex": 1.274121100622278e-13,
+      "delta_s22_phase_deg": -1.149089712271234e-10
+    },
+    "10GHz": {
+      "reference_s11_db": -25.3874891948741,
+      "rebuilt_s11_db": -25.387489194871563,
+      "delta_s11_db": 2.5366375666635577e-12,
+      "delta_s11_complex": 1.6621077162680102e-14,
+      "delta_s11_phase_deg": 5.7980287238024175e-12,
+      "reference_s21_db": -2.0876598173832015,
+      "rebuilt_s21_db": -2.0876598173831793,
+      "delta_s21_db": 2.220446049250313e-14,
+      "delta_s21_complex": 1.9485012083081962e-14,
+      "delta_s21_phase_deg": -1.4210854715202004e-12,
+      "reference_s12_db": -2.0876598173832015,
+      "rebuilt_s12_db": -2.087659817383191,
+      "delta_s12_db": 1.0658141036401503e-14,
+      "delta_s12_complex": 1.9404547016207557e-14,
+      "delta_s12_phase_deg": -1.4210854715202004e-12,
+      "reference_s22_db": -27.72121746210808,
+      "rebuilt_s22_db": -27.721217462108484,
+      "delta_s22_db": -4.050093593832571e-13,
+      "delta_s22_complex": 2.1033535237117645e-14,
+      "delta_s22_phase_deg": 2.9189095585024916e-11
+    }
+  },
+  "consistency_criteria": {
+    "all_max_complex_delta_lte": 0.03,
+    "s21_s12_max_abs_db_delta_lte": 0.2
+  },
+  "numerically_consistent": true,
+  "specification": "/home/solarstatiion/aedt-mcp/specs/microstrip_50ohm_fr4.md",
+  "copied_specification": "/home/solarstatiion/aedt-mcp/projects/microstrip_rebuilt_from_markdown_20260802_231316/microstrip_50ohm_fr4.md",
+  "rebuilt_project": "/home/solarstatiion/aedt-mcp/projects/microstrip_rebuilt_from_markdown_20260802_231316/microstrip_rebuilt_from_markdown.aedt",
+  "comparison_csv": "/home/solarstatiion/aedt-mcp/projects/microstrip_rebuilt_from_markdown_20260802_231316/comparison_full_sweep.csv",
+  "comparison_report": "/home/solarstatiion/aedt-mcp/projects/microstrip_rebuilt_from_markdown_20260802_231316/comparison.md"
+}
