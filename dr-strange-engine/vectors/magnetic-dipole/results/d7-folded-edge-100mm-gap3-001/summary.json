@@ -1,0 +1,14 @@
+{
+  "engine": "Dr Strange Engine",
+  "round_id": "d7-folded-edge-100mm-gap3-001",
+  "state": "rejected",
+  "design": "600MHz_slot couple_F4B_1X2_3",
+  "geometry": {"element_center_spacing_mm": 100.0, "projected_facing_edge_gap_mm": 3.0, "fold_angle_deg": 90.0, "fold_depth_mm": 17.5, "substrate_top_z_mm": 55.0, "fold_tip_z_mm": 37.5, "feedline_overlap_mm": 65.0},
+  "solver": {"design_validation_return_value": 1, "adaptive_status": "completed_without_nonconvergence_warning", "port_topology_warning": "Only one conductor touches each lumped port after compaction."},
+  "comparison_600mhz": {
+    "accepted_mx210_candidate": {"s11_db": -19.639409643284, "s21_db": -20.7374163995843, "s22_db": -19.8236655264475, "peak_realized_gain_dbi": 7.056620479663, "accepted_power_fraction_port1": 0.9891342668344996},
+    "folded_100mm_candidate": {"s11_db": -0.0132717549444503, "s21_db": -55.5655799846088, "s22_db": -0.0396347446558553, "peak_realized_gain_dbi": -17.1040860035112, "accepted_power_fraction_port1": 0.003051269894229436}
+  },
+  "decision": {"accept": false, "reason": "The original feed networks overlap at 100 mm center spacing, invalidating the two-port topology. The very low apparent S21 is caused by near-total reflection and is not useful isolation."},
+  "provenance": {"source_project_sha256": "e2548696fa687d1ff1bf340fe24d0e157755142d2bb53ae5173f48d172c88b22", "folded_project_sha256": "22df686c380549c2dc185b2a764fb0a61b24ba2bfb0bd748a8c1bc7411baf9a8", "source_was_modified": false}
+}
